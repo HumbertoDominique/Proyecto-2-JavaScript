@@ -77,6 +77,8 @@ let precio_A = 20; "USD"
 let precio_B = 35; "USD"
 let precio_C = 10; "USD"
 
+alert ("Bienvenido a VINEBULA.\nViñedo de Uvas Exóticas.");
+
 inicio = prompt ("Para acceder a la tienda virtual, presiona 1.\n Para salir del sistema, presiona 0.");
 
 while (inicio == "1"){
