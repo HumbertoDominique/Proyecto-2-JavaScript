@@ -20,24 +20,26 @@
 td{
     font-size: 0.7rem;
 }
+th{
+    font-size: 0.7rem;
+}
 .div_cards{
-    background-color: white;
-    height: 50vh;
 }
 #body_productos{
-    background-color: blue;
-    height: 100%;
-}
-.div_prod_1{
-    background-color: red;
-    width: 20vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50vh;
 }
 .div_prod_2{
-    height: 10vh;
+    width: 20vw;
+    height: 18rem;
+    border: #450757;
 }
 .imgProducto{
-    width: 50px;
-    height: 50px;
+    object-fit: cover;
+    overflow: hidden;
+    height: 100%;
 }
 .nombreProducto{
     font-size: medium;
@@ -66,6 +68,9 @@ td{
     border: none;
     background: none;
 }
+.estilos_tabla{
+    font-size: 1rem;
+}
 .centrar{
     display: flex;
     justify-content: center;
@@ -92,7 +97,9 @@ td{
     height: 30rem;
     z-index: 1;
     color: black;
-    background: rgba(255, 255, 255, 0.696);
+    background: rgba(255, 255, 255, 0.833);
+    border-width: thick;
+    border-color: #220d2c;
 }
 .carrito_div_h2{
     font-size: 1rem;

@@ -35,16 +35,14 @@ let carta_producto = document.getElementById("body_productos");
 for( let producto of lista_productos_oro ){
 
     let carta = document.createElement("div");
-    carta.innerHTML = `<div class="col centrar div_prod_1">
-                       <div class="card centrar div_prod_2">
+    carta.innerHTML = `<div class="card div_prod_2 text-center">
                        <img src="./assets/images/${producto.img}" class="card-img-top imgProducto">
                        <div class="card-body">
                        <h3 class="card-title nombreProducto">${producto.articulo}</h3>
                        <span class="precioProducto">${producto.precio} USD</span>
                        <span class="cantidadProducto d-none">${producto.cantidad}</span>
                        <br>
-                       <a href="#" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
-                       </div>
+                       <a href="#PRODUCTOS" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
                        </div>
                        </div>`;
     
@@ -94,9 +92,6 @@ function agregar_a_carrito(e){
 
     mostrar_carrito();
 
-    let carrito_JSON = JSON.stringify(carrito);
-    localStorage.setItem("articulos_carrito", carrito_JSON);
-
 }
 
 let btn_compra = document.querySelectorAll(".boton_compra");
@@ -111,7 +106,7 @@ for (let boton of btn_compra){
 function mostrar_carrito (){
 
     let tabla = document.getElementById("tabla_carrito");
-    tabla.innerHTML = ""; //PENSAR SOLUCION
+    tabla.innerHTML = "";
 
     for (let articulo of carrito){
         
@@ -120,7 +115,7 @@ function mostrar_carrito (){
                           <td><p>${articulo.nombre}</p></td>
                           <td class="cantidad_elemento">${articulo.cantidad}</td>
                           <td>${articulo.precio}</td>
-                          <td><button id="${articulo.nombre}" class="btn btn-danger sumar_elemento">+</  button></td>
+                          <td><button id="${articulo.nombre}" class="btn btn-success sumar_elemento">+</  button></td>
                           <td><button id="${articulo.nombre}" class="btn btn-danger restar_elemento">-</button></td>`;
                         
         tabla.append( fila );
@@ -137,6 +132,9 @@ function mostrar_carrito (){
     for(let btns of btn_resta){
         btns.addEventListener("click", restar_cant);
     }
+
+    let carrito_JSON = JSON.stringify(carrito);
+    localStorage.setItem("articulos_carrito", carrito_JSON);
 }
 
 //FUNCIONES PARA INTERACTUAR CON EL CARRITO
@@ -146,6 +144,7 @@ function sumar_cant(e){
     let index_prod = carrito.findIndex( parametro => parametro.nombre == e.target.id, 0);         
 
     carrito[index_prod].cantidad++;
+
     mostrar_carrito();
 }
 
@@ -170,3 +169,21 @@ function restar_cant(e){
 
     mostrar_carrito();
 }
+
+
+//VACIAR CARRITO
+
+let elemento_vaciar = document.querySelector(".carrito_body");
+
+let div_vaciar = document.createElement("div");
+    div_vaciar.innerHTML = `<div><button class="btn btn-primary position-bottom-0 w-100 mt-5 mb-3 borrar_elemento">Vaciar carrito</button></div>`;
+
+elemento_vaciar.append(div_vaciar);
+
+let boton_vaciar = document.querySelector(".borrar_elemento");
+
+boton_vaciar.addEventListener("click", function(){
+    carrito = [];
+    mostrar_carrito();
+});
+
