@@ -3,27 +3,61 @@
     padding: 0;
     box-sizing: border-box;
 }
+#body_carrito{
+    display: none;
+}
 .img_uvas{
-    height: 10rem;
+    height: 8rem;
     width: 92%;
-    object-fit: cover;
+    object-fit: contain;
     overflow: hidden;
+    background-position: center;
 }
-.imgProducto{
-    height: 100%;
+.img_en_carrito{
+    height: 40px;
+    width: 40px;
 }
-.img_eventos{
-    height: 10rem;
-    object-fit: cover;
+td{
+    font-size: 0.7rem;
 }
 .div_cards{
-    width: 92%;
-    background-color: #cfd8dc90;
+    background-color: white;
+    height: 50vh;
+}
+#body_productos{
+    background-color: blue;
+    height: 100%;
+}
+.div_prod_1{
+    background-color: red;
+    width: 20vw;
+}
+.div_prod_2{
+    height: 10vh;
+}
+.imgProducto{
+    width: 50px;
+    height: 50px;
+}
+.nombreProducto{
+    font-size: medium;
+}
+.div_eventos{
+    width: 80%;
+    height: 20%;
+}
+.img_eventos{
+    object-fit: cover;
+}
+.img_contacto{
+    object-fit: cover;
+    width: 20%;
+    height: 20%;
 }
 .main_div{
-    background-image: linear-gradient(to right bottom, #73168c, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
+    background-image: linear-gradient(to right bottom, #450757, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
     color: white;
-    height: 60vh;
+    height: 80vh;
 }
 .productos_div{
     height: 100vh;
@@ -32,7 +66,7 @@
     border: none;
     background: none;
 }
-.carta{
+.centrar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +91,8 @@
     width: 25rem;
     height: 30rem;
     z-index: 1;
-    color: white;
+    color: black;
+    background: rgba(255, 255, 255, 0.696);
 }
 .carrito_div_h2{
     font-size: 1rem;

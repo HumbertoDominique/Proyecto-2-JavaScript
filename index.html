@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>VINEBULA</title>
+        <link rel="shortcut icon" href="./assets/images/LOGO_ICONO_NEGRO.svg" type="image/png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/estilos.css">
     </head>
@@ -12,8 +13,8 @@
     <header>
         <nav class="header_nav navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand text-white" href="#"> ICONO
-                    <!-- <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24"> -->
+                <a class="navbar-brand text-white" href="#">
+                    <img src="./assets/images/LOGO_ICONO_BLANCO.svg" alt="Bootstrap" width="60" height="50">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
                             <a class="nav-link text-white" href="#CONTACTO">Contacto</a>
                         </li>
                         <li class="nav-item ms-5">
-                            <button id="display_carrito"><img src="./assets/images/anadir-al-carrito.png" alt="icono_de_compras" width="30" height="24" ></button>          
+                            <button id="display_carrito"><img src="./assets/images/anadir-al-carrito.png" alt="icono_de_compras" width="30" height="24"></button>          
                         </li>
                     </ul>
                 </div>
@@ -41,17 +42,25 @@
         </nav>
     </header>
     <main>
-        <div class="container-fluid bg-dark vh-100 d-flex">
-            <div class="div_cards container-fluid text-black carta">
-                <div class="row w-100 text-center pb-1">
-                    <div class="col bg-primary vh-100" id="body_productos">
+        <div class="container-fluid pt-5 vh-50 centrar main_div text-white">
+            <div class="container">
+                <div class="row text-center fs-1">
+                    <div class="col-12">
+                        <img src="./assets/images/LOGO_ICONO_BLANCO.svg" alt="logo_Vinebula" width="120">
+                        <h1>BIENVENIDO A VINEBULA.</h1>
+                    </div>
+                    <div class="col-12 fs-3">
+                        <p style="font-style: italic;">Viñedo de Uvas Exóticas.</p>
                     </div>
                 </div>
             </div>
-            <div class="container ">
-                <div class="row">
-                    <div class="col bg-success vh-100" id="body_carrito">
-                        <h2 class="carrito_div_h2">CARRITO DE COMPRAS</h2>
+        </div>
+    </main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col position-fixed top-0 end-0 rounded text-center pt-5 carrito me-3" id="body_carrito">
+                    <h2 class="carrito_div_h2">CARRITO DE COMPRAS</h2>
                     <span>Cantidad de artículos:</span>
                     <table class="table table-striped tabla">
                         <thead>
@@ -66,16 +75,106 @@
                         </thead>
                         <tbody id="tabla_carrito">
                         </tbody>
-                      </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="PRODUCTOS">
+        <div class="main_div container-fluid vh-100">
+            <div class="text-center fs-1 pt-4">
+                <h2>VARIEDADES DE UVAS</h2>
+            </div>
+            <div class="container-fluid fs-3 text-white centrar">
+                <span class="pe-5">PLATEADAS</span>
+                <div class="form-check form-switch">
+                    <input class="form-check-input boton_uvas" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label ps-4" for="flexSwitchCheckChecked">DORADAS</label>
+                </div>
+            </div>
+            <div class="centrar">
+                <div class="img_uvas rounded-top">
+                    <img src="./assets/images/plantillaUvasDoradas.png" alt="plantilla_tipo_de_uvas" class="rounded">
+                </div>
+            </div>
+            <div class="div_cards container-fluid text-black centrar">
+                <div class="row vw-100 text-center pb-1 centrar"id="body_productos">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-5" id="NOSOTROS">
+        <div class="section_1_div_ container-fluid pt-5">
+            <div class="text-center fs-1 pt-5">
+                <h2>SOBRE NOSOTROS</h2>
+            </div>
+            <div class="container pt-5 pb-5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas debitis dignissimos repellendus fuga molestiae error officiis ipsum, suscipit facere delectus rem corporis! Incidunt nemo quidem quaerat mollitia asperiores exercitationem quos.
+                Illo quod neque iure perspiciatis ab. Sequi doloribus dolor, inventore maxime natus ut dicta eligendi harum, accusantium blanditiis laboriosam velit aliquam adipisci provident voluptates quia nemo beatae corporis quisquam aperiam.
+            </div>
+        </div>
+    </section>
+    <section class="section_1_div" id="EVENTOS">
+        <div class="container-fluid">
+            <div class="text-center fs-1 pt-3">
+                <h2>EVENTOS</h2>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 centrar pb-5 pt-3">
+                <div class="col centrar">
+                  <div class="card div_eventos text-center">
+                    <img src="./assets/images/plantillaUvasDoradas.png" class="card-img-top img_eventos" alt="...">
+                    <div class="card-body">
+                      <h3 class="card-title">Card title</h3>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga delectus a, voluptas voluptatum, sint iste pariatur nihil eligendi necessitatibus quas, corporis dicta ullam. Ducimus necessitatibus et soluta repellat, architecto voluptas.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col centrar">
+                  <div class="card div_eventos text-center">
+                    <img src="./assets/images/plantillaUvasDoradas.png" class="card-img-top img_eventos" alt="...">
+                    <div class="card-body">
+                      <h3 class="card-title">Card title</h3>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga delectus a, voluptas voluptatum, sint iste pariatur nihil eligendi necessitatibus quas, corporis dicta ullam. Ducimus necessitatibus et soluta repellat, architecto voluptas.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="CONTACTO">
+        <div class="container-fluid">
+            <div class="row centrar bg-dark">
+                <div class="col-md-6 pb-3">
+                    <div class="img_contacto">
+                        <img src="./assets/images/uvasPlateadas.png" alt="" width="500" class="rounded ms-5">
+                    </div>
+                </div>
+                <div class="col-md-6 bg-dark pb-5">
+                    <div class="text-center text-white fs-1 pt-5">
+                        <h2>CONTACTO</h2>
+                    </div>
+                    <div>
+                        <div class="mb-1">
+                            <label for="exampleFormControlInput1" class="form-label">Nombre de usuario</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Dirección de correo</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
     <footer>
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="./js/javascript_2.js"></script>
+    <script src="./js/javascript.js"></script>
 </body>
 </html>
