@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.img_uvas{
+    height: 10rem;
+    width: 92%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.imgProducto{
+    height: 100%;
+}
+.img_eventos{
+    height: 10rem;
+    object-fit: cover;
+}
+.div_cards{
+    width: 92%;
+    background-color: #cfd8dc90;
+}
+.main_div{
+    background-image: linear-gradient(to right bottom, #73168c, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
+    color: white;
+    height: 60vh;
+}
+.productos_div{
+    height: 100vh;
+}
+#display_carrito{
+    border: none;
+    background: none;
+}
+.carta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_nav{
+    background-color: #1A1440;
+}
+.section_1_div{
+    background-color: #CFD8DC;
+}
+.section_1_div_{
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.683), rgba(255, 255, 255, 0.683)), url(./../assets/images/nosotros.jpg);
+    background-position: bottom;
+}
+.boton_uvas{
+    background-color: silver;
+}
+.boton_uvas:checked{
+    background-color: gold;
+}
+.carrito{
+    width: 25rem;
+    height: 30rem;
+    z-index: 1;
+    color: white;
+}
+.carrito_div_h2{
+    font-size: 1rem;
+    font-family: Verdana;
+}
+.tabla{
+    font-size: 0.5rem;
+}
