@@ -1,3 +1,7 @@
+let carrito = JSON.parse(localStorage.getItem('articulos_carrito')) || [];
+
+mostrar_carrito();
+
 //ESTE SEGMENTO PERMITE MOSTRAR O ESCONDER EL CARRITO//
 
 let display_carrito = document.getElementById("display_carrito");
@@ -35,17 +39,16 @@ for( let producto of lista_productos_oro ){
                        <div class="card-body">
                        <h3 class="card-title">${producto.articulo}</h3>
                        <span class="precioProducto">${producto.precio} USD</span>
+                       <span class="cantidadProducto d-none">${producto.cantidad}</span>
                        <a href="#" class="btn btn-primary boton_compra">Agregar al carrito</a>
                        </div>
                        </div>
                        </div>`;
-
+    
     carta_producto.append( carta );
 }
 
 // ESTE SEGMENTO DESARROLLA LA FUNCIÓN DE AGREGAR ELEMENTOS AL ARREGLO CARRITO
-
-let carrito = [];
 
 function agregar_a_carrito(e){
 
@@ -55,41 +58,43 @@ function agregar_a_carrito(e){
 
     let nombreProducto = nodo_padre.querySelector("h3").textContent;
     let precioProducto = nodo_padre.querySelector(".precioProducto").textContent;
+    let cantidadProducto = nodo_padre.querySelector(".cantidadProducto").textContent;
     let imgProducto = nodo_abuelo.querySelector(".imgProducto").src;
 
     let articulo = {
         nombre: nombreProducto,
         precio: precioProducto,
-        cantidad: 1,
+        cantidad: cantidadProducto,
         img: imgProducto,
     }
      
-    function filtrar_duplicados (){
-        return articulo.nombre == nombreProducto
+    function duplicados (articulo){
+        if (articulo.nombre == nombreProducto){
+            return true
+        }
     }
 
-    console.log("articulo.nombre: ", articulo.nombre);
-    console.log("nombreProducto: ", nombreProducto);
+    let evaluar_duplicados = carrito.some (duplicados);
 
-    let evaluar_duplicados = carrito.some(filtrar_duplicados)
-    console.log(evaluar_duplicados);
+    function agregar_cantidad(articulo){
+        if(articulo.nombre == nombreProducto){
+            articulo.cantidad++;
+        }
+    }
 
-    carrito.push ( articulo );
+    if(evaluar_duplicados){
+        carrito.map(agregar_cantidad);
+    }
+    else{
+        carrito.push(articulo);
+    }
+
+    mostrar_carrito();
 
     let carrito_JSON = JSON.stringify(carrito);
     localStorage.setItem("articulos_carrito", carrito_JSON);
 
-    function eliminar_duplicados(articulo){
-        return  nombreProducto != articulo.nombre
-    }
-
-    let lista_compra = carrito.filter(eliminar_duplicados);
-    console.log(carrito);
-
-    mostrar_carrito();
-
 }
-
 
 let btn_compra = document.querySelectorAll(".boton_compra");
 
@@ -113,10 +118,46 @@ function mostrar_carrito (){
                           <td class="cantidad_elemento">${articulo.cantidad}</td>
                           <td>${articulo.precio}</td>
                           <td><button class="btn btn-danger sumar_elemento">+</  button></td>
-                          <td><button class="btn btn-danger   restar_elemento">-</button></td>`;
+                          <td><button class="btn btn-danger restar_elemento">-</button></td>`;
                         
         tabla.append( fila );
+    }
+
+    let btn_sumar = document.querySelectorAll(".sumar_elemento");
+
+    for(let btn of btn_sumar){
+        btn.addEventListener("click", sumar_cant);
+    }
+
+    let btn_resta = document.querySelectorAll(".restar_elemento");
+
+    for(let btns of btn_resta){
+        btns.addEventListener("click", restar_cant);
+    }
+
+    function sumar_cant(e){
+
+        let nodo_raiz = e.target.parentNode.parentNode;
+
+        let elemento_cantidad = nodo_raiz.querySelector("p").textContent;
+    
+        let index_prod = carrito.indexOf(articulo.nombre == elemento_cantidad, 0);
+        
+        console.log(elemento_cantidad);
+
+        console.log(index_prod);
+
+        console.log("HOLA");
 
     }
 
+    function restar_cant(e){
+        
+        let nodo_raiz_res = e.target.parentNode.parentNode;
+    
+        let cantidad_elemento_res = nodo_raiz_res.querySelector(".cantidad_elemento").textContent;
+
+        console.log("CHAO");
+    }
 }
+
