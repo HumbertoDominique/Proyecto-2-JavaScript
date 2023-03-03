@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 #body_carrito{
-    display: none;
+    display: block;
 }
 .img_uvas{
     height: 8rem;
@@ -22,8 +22,6 @@ td{
 }
 th{
     font-size: 0.7rem;
-}
-.div_cards{
 }
 #body_productos{
     display: flex;
@@ -93,7 +91,7 @@ th{
     background-color: gold;
 }
 .carrito{
-    width: 25rem;
+    width: 30rem;
     height: 30rem;
     z-index: 1;
     color: black;

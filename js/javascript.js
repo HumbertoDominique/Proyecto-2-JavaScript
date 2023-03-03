@@ -137,6 +137,7 @@ function mostrar_carrito (){
 
     let carrito_JSON = JSON.stringify(carrito);
     localStorage.setItem("articulos_carrito", carrito_JSON);
+
 }
 
 //FUNCIONES PARA INTERACTUAR CON EL CARRITO
@@ -189,21 +190,18 @@ boton_vaciar.addEventListener("click", function(){
     mostrar_carrito();
 });
 
-// CALCULAR TOTAL /// AQUI TENGO DUDAS PORQUE NO FUNCIONA
+// CALCULAR TOTAL //
 
 function calcular_total(acu, el){
 
         acu = acu + (el.precio * el.cantidad);
-        return acu
-
-    mostrar_carrito();
+        return acu;
 }
 
 let venta_total = carrito.reduce (calcular_total, 0);
 
-//ESTO ENGANCHA EL ELEMENTO EN EL CARRITO Y FUNCIONA 
-let barra_total = document.createElement("div");
-    barra_total.innerHTML = `<div class="container position-bottom w-100 total_elemento">El total de su compra es: ${venta_total}</div>`
+let barra_total = document.querySelector(".total_elemento");
+barra_total.addEventListener("click", function(){
+    barra_total.innerText =`El total de su compra es: ${venta_total}`;
+});
 
-    elemento_adicional_carrito.append(barra_total);
-   
