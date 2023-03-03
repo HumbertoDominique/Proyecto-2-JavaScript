@@ -39,7 +39,8 @@ for( let producto of lista_productos_oro ){
                        <img src="./assets/images/${producto.img}" class="card-img-top imgProducto">
                        <div class="card-body">
                        <h3 class="card-title nombreProducto">${producto.articulo}</h3>
-                       <span class="precioProducto">${producto.precio} USD</span>
+                       <span class="precioProducto">${producto.precio}</span>
+                       <span>USD</span>
                        <span class="cantidadProducto d-none">${producto.cantidad}</span>
                        <br>
                        <a href="#PRODUCTOS" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
@@ -114,7 +115,8 @@ function mostrar_carrito (){
         fila.innerHTML = `<td><img src="${articulo.img}" class="img_en_carrito rounded"></td>
                           <td><p>${articulo.nombre}</p></td>
                           <td class="cantidad_elemento">${articulo.cantidad}</td>
-                          <td>${articulo.precio}</td>
+                          <td class="precio_elemento">${articulo.precio}</td>
+                          <td>USD</td>
                           <td><button id="${articulo.nombre}" class="btn btn-success sumar_elemento">+</  button></td>
                           <td><button id="${articulo.nombre}" class="btn btn-danger restar_elemento">-</button></td>`;
                         
@@ -173,12 +175,12 @@ function restar_cant(e){
 
 //VACIAR CARRITO
 
-let elemento_vaciar = document.querySelector(".carrito_body");
+let elemento_adicional_carrito = document.querySelector(".carrito_body");
 
 let div_vaciar = document.createElement("div");
     div_vaciar.innerHTML = `<div><button class="btn btn-primary position-bottom-0 w-100 mt-5 mb-3 borrar_elemento">Vaciar carrito</button></div>`;
 
-elemento_vaciar.append(div_vaciar);
+elemento_adicional_carrito.append(div_vaciar);
 
 let boton_vaciar = document.querySelector(".borrar_elemento");
 
@@ -187,3 +189,21 @@ boton_vaciar.addEventListener("click", function(){
     mostrar_carrito();
 });
 
+// CALCULAR TOTAL /// AQUI TENGO DUDAS PORQUE NO FUNCIONA
+
+function calcular_total(acu, el){
+
+        acu = acu + (el.precio * el.cantidad);
+        return acu
+
+    mostrar_carrito();
+}
+
+let venta_total = carrito.reduce (calcular_total, 0);
+
+//ESTO ENGANCHA EL ELEMENTO EN EL CARRITO Y FUNCIONA 
+let barra_total = document.createElement("div");
+    barra_total.innerHTML = `<div class="container position-bottom w-100 total_elemento">El total de su compra es: ${venta_total}</div>`
+
+    elemento_adicional_carrito.append(barra_total);
+   
