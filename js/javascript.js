@@ -198,10 +198,9 @@ function calcular_total(acu, el){
         return acu;
 }
 
-let venta_total = carrito.reduce (calcular_total, 0);
-
 let barra_total = document.querySelector(".total_elemento");
 barra_total.addEventListener("click", function(){
+    let venta_total = carrito.reduce (calcular_total, 0);
     barra_total.innerText =`El total de su compra es: ${venta_total}`;
 });
 
