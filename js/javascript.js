@@ -10,15 +10,18 @@ let display_carrito = document.getElementById("display_carrito");
 
 display_carrito.addEventListener("click",function(){
 
-
     let body_carrito = document.getElementById("body_carrito");
+    let imagen_carrito = document.getElementById("imagen_carrito");
 
     if( body_carrito.style.display != "none"){
 
         body_carrito.style.display = "none";
+        imagen_carrito.src = "./assets/images/carrito_vacio.svg";
     }
     else{
+        
         body_carrito.style.display = "block";
+        imagen_carrito.src = "./assets/images/carrito_lleno.svg";
     }
 })
 
@@ -30,25 +33,55 @@ let lista_productos_oro = [
     {id: "3", articulo: "Racimo de uvas doradas", precio: 17, cantidad: 1, img: "uvasDoradas.png"},
 ];
 
+let lista_productos_plata = [
+    {id: "4", articulo: "Botella de Vino Plateado 500mL", precio: 20, cantidad: 1, img: "botella500.jpg"},
+    {id: "5",articulo: "Botella de Vino Plateado 1L", precio: 35, cantidad: 1, img: "botella1L.jpg"},
+    {id: "6", articulo: "Racimo de uvas plateadas", precio: 15, cantidad: 1, img: "uvasPlateadas.png"},
+];
+
 let carta_producto = document.getElementById("body_productos");
 
-for( let producto of lista_productos_oro ){
+let tipo_productos = "oro";
 
-    let carta = document.createElement("div");
-    carta.innerHTML = `<div class="card div_prod_2 text-center">
-                       <img src="./assets/images/${producto.img}" class="card-img-top imgProducto">
-                       <div class="card-body">
-                       <h3 class="card-title nombreProducto">${producto.articulo}</h3>
-                       <span class="precioProducto">${producto.precio}</span>
-                       <span>USD</span>
-                       <span class="cantidadProducto d-none">${producto.cantidad}</span>
-                       <br>
-                       <a href="#PRODUCTOS" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
-                       </div>
-                       </div>`;
-    
-    carta_producto.append( carta );
+function renderizarProductos(productos) {
+    carta_producto.innerHTML = ""; // Limpiar el contenedor de productos
+
+    for (let producto of productos) {
+        let carta = document.createElement("div");
+        carta.innerHTML = `<div class="card div_prod_2 text-center">
+                           <img src="./assets/images/${producto.img}" class="card-img-top imgProducto">
+                           <div class="card-body">
+                           <h3 class="card-title nombreProducto">${producto.articulo}</h3>
+                           <span class="precioProducto">${producto.precio}</span>
+                           <span>USD</span>
+                           <span class="cantidadProducto d-none">${producto.cantidad}</span>
+                           <br>
+                           <a href="#PRODUCTOS" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
+                           </div>
+                           </div>`;
+        
+        carta_producto.append(carta);
+    }
 }
+
+function cambiarProductos() {
+    if (tipo_productos === "oro") {
+        tipo_productos = "plata";
+        renderizarProductos(lista_productos_plata);
+        document.getElementById("cambiarProductos").innerText = "Cambiar a productos dorados";
+        capturar_botones_compra();
+    } else {
+        tipo_productos = "oro";
+        renderizarProductos(lista_productos_oro);
+        document.getElementById("cambiarProductos").innerText = "Cambiar a productos plateados";
+        capturar_botones_compra();
+    }
+}
+
+renderizarProductos(lista_productos_oro);
+
+document.getElementById("cambiarProductos").addEventListener("click", cambiarProductos);
+
 
 // ESTE SEGMENTO DESARROLLA LA FUNCIÓN DE AGREGAR ELEMENTOS AL ARREGLO CARRITO
 
@@ -91,16 +124,30 @@ function agregar_a_carrito(e){
         carrito.push(articulo);
     }
 
+    Toastify({
+        text: "Has agregado un elemento al carrito",
+        duration: 1000,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "red",
+        },
+    }).showToast();
     mostrar_carrito();
 
 }
 
-let btn_compra = document.querySelectorAll(".boton_compra");
+function capturar_botones_compra(){
 
-for (let boton of btn_compra){
+    let btn_compra = document.querySelectorAll(".boton_compra");
 
-    boton.addEventListener("click", agregar_a_carrito);
+    for (let boton of btn_compra){
+        boton.addEventListener("click", agregar_a_carrito);
+    }
 }
+
+capturar_botones_compra();
 
 //ESTE SEGMENTO AGREGA ELEMENTOS AL CARRITO
 
@@ -179,7 +226,7 @@ function restar_cant(e){
 let elemento_adicional_carrito = document.querySelector(".carrito_body");
 
 let div_vaciar = document.createElement("div");
-    div_vaciar.innerHTML = `<div><button class="btn btn-primary position-bottom-0 w-100 mt-5 mb-3 borrar_elemento">Vaciar carrito</button></div>`;
+    div_vaciar.innerHTML = `<div><button class="btn btn-primary position-bottom-0 w-100 mt-2 mb-3 borrar_elemento">Vaciar carrito</button></div>`;
 
 elemento_adicional_carrito.append(div_vaciar);
 
