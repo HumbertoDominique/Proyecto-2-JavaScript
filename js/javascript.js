@@ -267,8 +267,8 @@ function cambio_de_fondo (){
     else{
 
         fondo_inicio.classList.add("main_div_2");
-        imagen_icono.src = "./assets/images/logo_principal_negro.svg";
+        imagen_icono.src = "./assets/images/logo_principal_negro2.svg";
     }
 }
 
-setInterval (cambio_de_fondo, 5000);
+setInterval (cambio_de_fondo, 8000);

@@ -60,11 +60,8 @@ th{
 }
 
 .main_div_2{
-    background: white;
     height: 80vh;
-}
-#logo_principal{
-    opacity: 1;
+    animation: fadein 8.6s;
 }
 .productos_div{
     height: 100vh;
@@ -115,13 +112,20 @@ th{
 }
 
 @keyframes fadein {
-    0% { 
-        opacity: 1;
+
+    0%{
+        background-image: linear-gradient(to right bottom, #450757, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
+    }
+    2%{
+        background: gray;
     }
     50%{
-        opacity: 0;
+        background: white;
     }
-    100% { 
-        opacity: 1;
+    75%{ 
+        background: white;
+    }
+    100%{
+        background: #220d2c;
     }
 }
