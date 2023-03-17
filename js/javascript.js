@@ -13,15 +13,15 @@ display_carrito.addEventListener("click",function(){
     let body_carrito = document.getElementById("body_carrito");
     let imagen_carrito = document.getElementById("imagen_carrito");
 
-    if( body_carrito.style.display != "none"){
+    if (body_carrito.classList.contains("display_carrito")){
 
-        body_carrito.style.display = "none";
-        imagen_carrito.src = "./assets/images/carrito_vacio.svg";
+        body_carrito.classList.remove("display_carrito");
+        imagen_carrito.src = "./assets/images/carrito_lleno.svg";
     }
     else{
-        
-        body_carrito.style.display = "block";
-        imagen_carrito.src = "./assets/images/carrito_lleno.svg";
+
+        body_carrito.classList.add("display_carrito");
+        imagen_carrito.src = "./assets/images/carrito_vacio.svg";
     }
 })
 
@@ -251,3 +251,24 @@ barra_total.addEventListener("click", function(){
     barra_total.innerText =`El total de su compra es: ${venta_total}`;
 });
 
+
+// CAMBIO DE FONDO A TRAVÉS DE SET INTERVAL
+
+let fondo_inicio = document.getElementById ("main_div");
+let imagen_icono = document.getElementById("logo_principal");
+
+function cambio_de_fondo (){
+
+    if( fondo_inicio.classList.contains("main_div_2")){
+        
+        fondo_inicio.classList.remove("main_div_2");
+        imagen_icono.src = "./assets/images/logo_principal.svg";
+    }
+    else{
+
+        fondo_inicio.classList.add("main_div_2");
+        imagen_icono.src = "./assets/images/logo_principal_negro.svg";
+    }
+}
+
+setInterval (cambio_de_fondo, 5000);

@@ -43,15 +43,11 @@
         </nav>
     </header>
     <main>
-        <div class="container-fluid pt-5 vh-50 centrar main_div text-white">
+        <div class="container-fluid pt-5 vh-50 centrar main_div" id="main_div">
             <div class="container">
                 <div class="row text-center fs-1">
                     <div class="col-12">
-                        <img src="./assets/images/LOGO_ICONO_BLANCO.svg" alt="logo_Vinebula" width="120">
-                        <h1>BIENVENIDO A VINEBULA.</h1>
-                    </div>
-                    <div class="col-12 fs-3">
-                        <p style="font-style: italic;">Viñedo de Uvas Exóticas.</p>
+                        <h1><img id="logo_principal" src="./assets/images/logo_principal.svg" alt="logo_Vinebula" width="220"></h1>
                     </div>
                 </div>
             </div>
@@ -60,7 +56,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col position-fixed top-0 end-0 rounded text-center pt-5 carrito me-3 estilos_tabla carrito_body" id="body_carrito">
+                <div class="col position-fixed top-0 end-0 rounded text-center pt-5 carrito me-3 estilos_tabla carrito_body display_carrito" id="body_carrito">
                     <h2 class="carrito_div_h2">CARRITO DE COMPRAS</h2>
                     <span>Cantidad de artículos:</span>
                     <table class="table table-striped tabla">
@@ -84,18 +80,13 @@
         </div>
     </section>
     <section id="PRODUCTOS">
-        <div class="main_div container-fluid vh-100">
+        <div class="main_div container-fluid vh-100 text-white">
             <div class="text-center fs-1 pt-4">
                 <h2>VARIEDADES DE UVAS</h2>
             </div>
             <div class="container-fluid fs-3 text-white centrar">
                 <div class="mb-3">
                     <button id="cambiarProductos" class="btn btn-primary"> Cambiar a productos plateados </button>
-                </div>
-            </div>
-            <div class="centrar">
-                <div class="img_uvas rounded-top">
-                    <img src="./assets/images/plantillaUvasDoradas.png" alt="plantilla_tipo_de_uvas" class="rounded">
                 </div>
             </div>
             <div class="div_cards container-fluid vw-100 text-black centrar mt-4" id="body_productos">
@@ -174,6 +165,7 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="./js/javascript.js"></script>
 </body>
 </html>
