@@ -131,7 +131,8 @@ function agregar_a_carrito(e){
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "red",
+            background: "white",
+            color: "black",
         },
     }).showToast();
     mostrar_carrito();
@@ -272,3 +273,42 @@ function cambio_de_fondo (){
 }
 
 setInterval (cambio_de_fondo, 8000);
+
+// Fetch - API
+
+function ubicar_posicion ( posicion){
+
+    let latitud = posicion.coords.latitude;
+    let longitud = posicion.coords.longitude;
+    let key = "876458db5b63490c9a7e348a60452d70";
+
+    fetch(`https://devapi.qweather.com/v7/astronomy/moon?[key=${key}&location=${latitud},${longitud}&date=20230318&]`)
+        .then( response => response.json())
+        .then( dataAPI => {
+
+            let evento_fetch = document.getElementById("evento_fetch");
+
+            let uso_api = document.createElement("div");
+            uso_api.innerHTML = `<p class="bg-danger w-100">Fase lunar:${dataAPI.moonPhase.name}<p>`
+                                `<p>${dataAPI.moonPhase.icon}<p>`
+
+            evento_fetch.append( uso_api );
+        })
+        
+}
+
+navigator.geolocation.getCurrentPosition( ubicar_posicion );
+
+/*
+https://devapi.qweather.com/v7/astronomy/moon?[key=876458db5b63490c9a7e348a60452d70&location=${latitud},${longitud}&date=20230318&lang=es]
+
+key=876458db5b63490c9a7e348a60452d70
+
+location=${latitud},${longitud}
+
+date=20230318
+
+lang=es
+
+location=116.41,39.92
+*/

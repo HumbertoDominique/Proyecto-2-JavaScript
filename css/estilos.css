@@ -46,6 +46,9 @@ th{
     width: 80%;
     height: 20%;
 }
+.prueba{
+    height: 50%;
+}
 .img_eventos{
     object-fit: cover;
 }
