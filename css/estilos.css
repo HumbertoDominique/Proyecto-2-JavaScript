@@ -3,25 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-.img_uvas{
-    height: 8rem;
-    width: 92%;
-    object-fit: contain;
-    overflow: hidden;
-    background-position: center;
-}
-.display_carrito{
-    display: none;
-}
-.img_en_carrito{
-    height: 40px;
-    width: 40px;
-}
-td{
-    font-size: 0.7rem;
-}
-th{
-    font-size: 0.7rem;
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #body_productos{
     display: flex;
@@ -60,11 +45,6 @@ th{
 .img_eventos{
     object-fit: cover;
 }
-.img_contacto{
-    object-fit: cover;
-    width: 20%;
-    height: 20%;
-}
 .main_div{
     background: #212122;
     height: 80vh;
@@ -84,17 +64,8 @@ th{
 .productos_div{
     height: 100vh;
 }
-#display_carrito{
-    border: none;
-    background: none;
-}
 .estilos_tabla{
     font-size: 1rem;
-}
-.centrar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .header_nav{
     background-color: #212121;
@@ -123,6 +94,13 @@ th{
 .boton_plateado:hover{
     background-color: #EFD472;
 }
+#display_carrito{
+    border: none;
+    background: none;
+}
+.display_carrito{
+    display: none;
+}
 .carrito{
     width: 30rem;
     height: auto;
@@ -139,7 +117,17 @@ th{
 .tabla{
     font-size: 0.5rem;
 }
-
+.img_en_carrito{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+td{
+    font-size: 0.7rem;
+}
+th{
+    font-size: 0.7rem;
+}
 .separacion{
     height: 0.05rem;
     background: #212121;

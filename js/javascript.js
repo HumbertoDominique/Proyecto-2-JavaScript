@@ -28,14 +28,14 @@ display_carrito.addEventListener("click",function(){
 // ESTE SEGMENTO RENDERIZA LOS PRODUCTOS DESDE UN ARREGLO 
 
 let lista_productos_oro = [
-    {id: "1", articulo: "Botella de Vino Dorado 0.5L", precio: 22, cantidad: 1, img: "botella500.jpg"},
-    {id: "2", articulo: "Botella de Vino Dorado 1L", precio: 37, cantidad: 1, img: "botella1L.jpg"},
+    {id: "1", articulo: "Botella de Vino Dorado 0.5L", precio: 22, cantidad: 1, img: "botella_05L_dorada.jpg"},
+    {id: "2", articulo: "Botella de Vino Dorado 1L", precio: 37, cantidad: 1, img: "botella_1L_dorada.jpg"},
     {id: "3", articulo: "Racimo de uvas doradas", precio: 17, cantidad: 1, img: "uvas_doradas_producto.png"},
 ];
 
 let lista_productos_plata = [
-    {id: "4", articulo: "Botella de Vino Plateado 0.5L", precio: 20, cantidad: 1, img: "botella500.jpg"},
-    {id: "5",articulo: "Botella de Vino Plateado 1L", precio: 35, cantidad: 1, img: "botella1L.jpg"},
+    {id: "4", articulo: "Botella de Vino Plateado 0.5L", precio: 20, cantidad: 1, img: "botella_05L_plateada.jpg"},
+    {id: "5",articulo: "Botella de Vino Plateado 1L", precio: 35, cantidad: 1, img: "botella_1L_plateada.jpg"},
     {id: "6", articulo: "Racimo de uvas plateadas", precio: 15, cantidad: 1, img: "uvas_plateadas_producto.png"},
 ];
 
@@ -44,7 +44,7 @@ let carta_producto = document.getElementById("body_productos");
 let tipo_productos = "oro";
 
 function renderizarProductos(productos) {
-    carta_producto.innerHTML = ""; // Limpiar el contenedor de productos
+    carta_producto.innerHTML = "";
 
     for (let producto of productos) {
         let carta = document.createElement("div");
@@ -66,6 +66,8 @@ function renderizarProductos(productos) {
     }
 }
 
+// ESTA SECCIÓN DA LA FUNCIONALIDAD AL BOTÓN QUE CAMBIA LOS ARREGLOS A RENDERIZAR (DORADOS-PLATEADOS)
+
 function cambiarProductos() {
     if (tipo_productos === "oro") {
         tipo_productos = "plata";
@@ -81,7 +83,7 @@ function cambiarProductos() {
         document.getElementById("cambiarProductos").classList.remove("boton_plateado");
         document.getElementById("section_div").classList.remove("section_div_2")
         capturar_botones_compra();
-    }
+    }
 }
 
 renderizarProductos(lista_productos_oro);
@@ -130,6 +132,8 @@ function agregar_a_carrito(e){
         carrito.push(articulo);
     }
 
+    // AGREGO LIBRERÍA TOASTIFY PARA ASIGNAR UNA NOTIFICACIÓN CUANDO SE AGREGA UN ELEMENTO AL CARRITO
+
     Toastify({
         text: "Has agregado un elemento al carrito",
         duration: 1000,
@@ -157,7 +161,7 @@ function capturar_botones_compra(){
 
 capturar_botones_compra();
 
-//ESTE SEGMENTO AGREGA ELEMENTOS AL CARRITO
+//ESTE SEGMENTO RENDERIZA LOS ELEMENTOS DEL ARREGLO DENTRO DEL CARRITO
 
 function mostrar_carrito (){
 
@@ -229,7 +233,7 @@ function restar_cant(e){
 }
 
 
-//VACIAR CARRITO
+//FUNCIÓN PARA VACIAR EL CARRITO
 
 let elemento_adicional_carrito = document.querySelector(".fondo_carrito");
 
@@ -245,7 +249,7 @@ boton_vaciar.addEventListener("click", function(){
     mostrar_carrito();
 });
 
-// CALCULAR TOTAL //
+// FUNCIÓN PARA CALCULAR EL PRECIO TOTAL DE LOS ELEMENTOS EN EL CARRITO
 
 function calcular_total(acu, el){
 
@@ -261,7 +265,7 @@ barra_total.addEventListener("click", function(){
 });
 
 
-// CAMBIO DE FONDO A TRAVÉS DE SET INTERVAL
+// CAMBIO DE FONDO EN SEGMENTO INICIAL DE LA PÁGINA A TRAVÉS DE SET INTERVAL
 
 let fondo_inicio = document.getElementById ("main_div");
 let imagen_icono = document.getElementById("logo_principal");
@@ -282,7 +286,7 @@ function cambio_de_fondo (){
 
 setInterval (cambio_de_fondo, 8000);
 
-// Fetch - API
+// USO DE API Y FETCH PARA OBTENER LOS DATOS DE LAS CONDICIONES AMBIENTALES DEL VIÑEDO
 
 function ubicar_posicion (){
 
@@ -322,8 +326,7 @@ function ubicar_posicion (){
 
 ubicar_posicion();
 
-
-// FUNCIÓN PARA CUANDO SE PRESIONA EL BOTÓN DE IR A COMPRAR.
+// FUNCIÓN PARA RESETEAR EL CARRITO CUANDO SE PRESIONA EL BOTÓN DE IR A COMPRAR.
 
 let boton_submit = document.getElementById("boton_submit");
 
