@@ -28,15 +28,15 @@ display_carrito.addEventListener("click",function(){
 // ESTE SEGMENTO RENDERIZA LOS PRODUCTOS DESDE UN ARREGLO 
 
 let lista_productos_oro = [
-    {id: "1", articulo: "Botella de Vino Dorado 500mL", precio: 22, cantidad: 1, img: "botella500.jpg"},
+    {id: "1", articulo: "Botella de Vino Dorado 0.5L", precio: 22, cantidad: 1, img: "botella500.jpg"},
     {id: "2", articulo: "Botella de Vino Dorado 1L", precio: 37, cantidad: 1, img: "botella1L.jpg"},
-    {id: "3", articulo: "Racimo de uvas doradas", precio: 17, cantidad: 1, img: "uvasDoradas.png"},
+    {id: "3", articulo: "Racimo de uvas doradas", precio: 17, cantidad: 1, img: "uvas_doradas_producto.png"},
 ];
 
 let lista_productos_plata = [
-    {id: "4", articulo: "Botella de Vino Plateado 500mL", precio: 20, cantidad: 1, img: "botella500.jpg"},
+    {id: "4", articulo: "Botella de Vino Plateado 0.5L", precio: 20, cantidad: 1, img: "botella500.jpg"},
     {id: "5",articulo: "Botella de Vino Plateado 1L", precio: 35, cantidad: 1, img: "botella1L.jpg"},
-    {id: "6", articulo: "Racimo de uvas plateadas", precio: 15, cantidad: 1, img: "uvasPlateadas.png"},
+    {id: "6", articulo: "Racimo de uvas plateadas", precio: 15, cantidad: 1, img: "uvas_plateadas_producto.png"},
 ];
 
 let carta_producto = document.getElementById("body_productos");
@@ -48,15 +48,17 @@ function renderizarProductos(productos) {
 
     for (let producto of productos) {
         let carta = document.createElement("div");
-        carta.innerHTML = `<div class="card div_prod_2 text-center">
+        carta.innerHTML = `<div class="div_borde mb-3 bg-secondary rounded centrar">
+                           <div class="card div_prod_2 text-center">
                            <img src="./assets/images/${producto.img}" class="card-img-top imgProducto">
                            <div class="card-body">
                            <h3 class="card-title nombreProducto">${producto.articulo}</h3>
-                           <span class="precioProducto">${producto.precio}</span>
+                           <span class="precioProducto text-center">${producto.precio}</span>
                            <span>USD</span>
                            <span class="cantidadProducto d-none">${producto.cantidad}</span>
                            <br>
-                           <a href="#PRODUCTOS" class="btn btn-primary boton_compra pb-3">Agregar al carrito</a>
+                           <a href="#PRODUCTOS" class="btn btn-secondary boton_compra">Agregar al carrito</a>
+                           </div>
                            </div>
                            </div>`;
         
@@ -68,12 +70,16 @@ function cambiarProductos() {
     if (tipo_productos === "oro") {
         tipo_productos = "plata";
         renderizarProductos(lista_productos_plata);
-        document.getElementById("cambiarProductos").innerText = "Cambiar a productos dorados";
+        document.getElementById("cambiarProductos").innerText = "Ver sección de uvas doradas";
+        document.getElementById("cambiarProductos").classList.add("boton_plateado");
+        document.getElementById("section_div").classList.add("section_div_2")
         capturar_botones_compra();
     } else {
         tipo_productos = "oro";
         renderizarProductos(lista_productos_oro);
-        document.getElementById("cambiarProductos").innerText = "Cambiar a productos plateados";
+        document.getElementById("cambiarProductos").innerText = "Ver sección de uvas plateadas";
+        document.getElementById("cambiarProductos").classList.remove("boton_plateado");
+        document.getElementById("section_div").classList.remove("section_div_2")
         capturar_botones_compra();
     }
 }
@@ -131,8 +137,9 @@ function agregar_a_carrito(e){
         position: "right",
         stopOnFocus: true,
         style: {
-            background: "white",
+            background: "linear-gradient(to right, #939393, #efd472)",
             color: "black",
+            fontSize: "0.8rem",
         },
     }).showToast();
     mostrar_carrito();
@@ -224,10 +231,10 @@ function restar_cant(e){
 
 //VACIAR CARRITO
 
-let elemento_adicional_carrito = document.querySelector(".carrito_body");
+let elemento_adicional_carrito = document.querySelector(".fondo_carrito");
 
 let div_vaciar = document.createElement("div");
-    div_vaciar.innerHTML = `<div><button class="btn btn-primary position-bottom-0 w-100 mt-2 mb-3 borrar_elemento">Vaciar carrito</button></div>`;
+    div_vaciar.innerHTML = `<button class="btn btn-danger position-bottom-0 boton_elemento borrar_elemento me-3 mb-2">VACIAR CARRITO</button>`;
 
 elemento_adicional_carrito.append(div_vaciar);
 
@@ -249,7 +256,8 @@ function calcular_total(acu, el){
 let barra_total = document.querySelector(".total_elemento");
 barra_total.addEventListener("click", function(){
     let venta_total = carrito.reduce (calcular_total, 0);
-    barra_total.innerText =`El total de su compra es: ${venta_total}`;
+    barra_total.innerText =`El total de su compra es: ${venta_total}
+                            Toque para actualizar`;
 });
 
 
@@ -276,39 +284,50 @@ setInterval (cambio_de_fondo, 8000);
 
 // Fetch - API
 
-function ubicar_posicion ( posicion){
+function ubicar_posicion (){
 
-    let latitud = posicion.coords.latitude;
-    let longitud = posicion.coords.longitude;
-    let key = "876458db5b63490c9a7e348a60452d70";
+    let latitud = 44.60;
+    let longitud = 7.93;
+    let key = "13974642d635376c034fbd3848760215";
 
-    fetch(`https://devapi.qweather.com/v7/astronomy/moon?[key=${key}&location=${latitud},${longitud}&date=20230318&]`)
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitud}&lon=${longitud}&appid=${key}&units=metric&lang=es`)
         .then( response => response.json())
         .then( dataAPI => {
+                            let evento_fetch = document.getElementById("evento_fetch");
 
-            let evento_fetch = document.getElementById("evento_fetch");
+                            let info_clima = document.createElement("div");
+                            let info_clima_2 = document.createElement("div");
 
-            let uso_api = document.createElement("div");
-            uso_api.innerHTML = `<p class="bg-danger w-100">Fase lunar:${dataAPI.moonPhase.name}<p>`
-                                `<p>${dataAPI.moonPhase.icon}<p>`
+                            info_clima.innerHTML = `<p>Clima: ${dataAPI.weather[0].description}</p>
+                                                    <p>Temperatura: ${dataAPI.main.temp}°C</p>
+                                                    <p>Humedad: ${dataAPI.main.humidity}%</p>`
+                            
+                            evento_fetch.append(info_clima);
 
-            evento_fetch.append( uso_api );
-        })
-        
+                                                    if (dataAPI.main.temp >40 && dataAPI.main.humidity <30){
+                                                        info_clima_2.innerHTML = `<p class="bg-warning text-black rounded">Las condiciones climáticas actuales favorecen el cultivo de uvas doradas.</p>`
+                                                    }
+                                                    else if (dataAPI.main.temp <20 && dataAPI.main.humidity >60){
+                                                        info_clima_2.innerHTML = `<p class="bg-secondary text-white rounded">Las condiciones climáticas actuales favorecen el cultivo de uvas plateadas.</p>`
+                                                    } 
+                                                    else{
+                                                        info_clima_2.innerHTML = `<p class="bg-dark text-white rounded">Las condiciones climáticas actuales no favorecen el cultivo de nuestras uvas.</p>`
+                                                    }
+
+                            evento_fetch.append(info_clima_2);
+                            })
+
 }
 
-navigator.geolocation.getCurrentPosition( ubicar_posicion );
+ubicar_posicion();
 
-/*
-https://devapi.qweather.com/v7/astronomy/moon?[key=876458db5b63490c9a7e348a60452d70&location=${latitud},${longitud}&date=20230318&lang=es]
 
-key=876458db5b63490c9a7e348a60452d70
+// FUNCIÓN PARA CUANDO SE PRESIONA EL BOTÓN DE IR A COMPRAR.
 
-location=${latitud},${longitud}
+let boton_submit = document.getElementById("boton_submit");
 
-date=20230318
-
-lang=es
-
-location=116.41,39.92
-*/
+boton_submit.addEventListener("click", function(){
+    carrito = [];
+    mostrar_carrito();
+});

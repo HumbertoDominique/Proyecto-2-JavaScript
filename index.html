@@ -26,13 +26,13 @@
                             <a class="nav-link active text-white" aria-current="page" href="#NOSOTROS">Sobre nosotros</a>
                         </li>
                         <li class="nav-item ms-5 ">
-                            <a class="nav-link text-white" href="#PRODUCTOS">Productos</a>
+                            <a class="nav-link text-white" href="#PRODUCTOS">Nuestros Productos</a>
                         </li>
                         <li class="nav-item ms-5">
-                            <a class="nav-link text-white" href="#EVENTOS">Eventos</a>
+                            <a class="nav-link text-white" href="#EVENTOS">Cosecha</a>
                         </li>
                         <li class="nav-item ms-5">
-                            <a class="nav-link text-white" href="#CONTACTO">Contacto</a>
+                            <a class="nav-link text-white" href="#SIGUENOS">Síguenos</a>
                         </li>
                         <li class="nav-item ms-5">
                             <button id="display_carrito"><img id="imagen_carrito" src="./assets/images/carrito_vacio.svg" alt="icono_de_compras" width="60" height="35" class="me-3"></button>          
@@ -56,7 +56,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col position-fixed top-0 end-0 rounded text-center pt-5 carrito me-3 estilos_tabla carrito_body display_carrito" id="body_carrito">
+                <div class="col position-fixed top-0 end-0 rounded text-center pt-5 carrito me-3 estilos_tabla carrito_body display_carrito overflow-auto" id="body_carrito">
                     <h2 class="carrito_div_h2">CARRITO DE COMPRAS</h2>
                     <span>Cantidad de artículos:</span>
                     <table class="table table-striped tabla">
@@ -74,85 +74,102 @@
                         <tbody id="tabla_carrito">
                         </tbody>
                     </table>
-                    <div><button class="btn btn-success position-bottom w-100 total_elemento">VER TOTAL</button></div>
+                    <div class="fondo_carrito centrar" id="fondo_carrito">
+                        <button class="btn btn-success mb-2 position-bottom-start text-white boton_elemento total_elemento">VER TOTAL</button>
+                        <form class="comprar_elemento" action="./pages/error.html">
+                        <button type="submit" class="btn btn-primary boton_elemento comprar_elemento mb-2 ms-3" id="boton_submit">IR A PAGAR</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="PRODUCTOS">
-        <div class="main_div container-fluid vh-100 text-white">
-            <div class="text-center fs-1 pt-4">
-                <h2>VARIEDADES DE UVAS</h2>
-            </div>
-            <div class="container-fluid fs-3 text-white centrar">
-                <div class="mb-3">
-                    <button id="cambiarProductos" class="btn btn-primary"> Cambiar a productos plateados </button>
-                </div>
-            </div>
-            <div class="div_cards container-fluid vw-100 text-black centrar mt-4" id="body_productos">
             </div>
         </div>
     </section>
     <section id="NOSOTROS">
         <div class="section_1_div_ container-fluid pt-5">
-            <div class="text-center fs-1 pt-5">
+            <div class="text-center fs-1">
                 <h2>SOBRE NOSOTROS</h2>
             </div>
-            <div class="container pt-5 pb-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas debitis dignissimos repellendus fuga molestiae error officiis ipsum, suscipit facere delectus rem corporis! Incidunt nemo quidem quaerat mollitia asperiores exercitationem quos.
-                Illo quod neque iure perspiciatis ab. Sequi doloribus dolor, inventore maxime natus ut dicta eligendi harum, accusantium blanditiis laboriosam velit aliquam adipisci provident voluptates quia nemo beatae corporis quisquam aperiam.
+            <div class="container separacion"></div>
+            <div class="container pt-3 pb-3 text-center">
+                <p>VINEBULA es un viñedo familiar instalado en la región de Monferrato, Italia. Con los avances en biología molecular, hemos logrado canalizar las condiciones ambientales para favorecer el cultivo de uvas doradas y platedas, con sus características propiedades únicas. Iniciamos nuestras primeras pruebas en el año 2020 y a la fecha hemos incorporado a mas de 20 países en nuestra cartera comercial. VINEBULA surge de la curiosidad por lo nuevo, guiando nuestros proyectos en función de la exploración de nuevos sabores, aromas y texturas otorgados por la naturaleza a través de las uvas.</p>
+            </div>
+        </div>
+    </section>
+    <section id="PRODUCTOS">
+        <div id="section_div" class="section_div container-fluid">
+            <div class="text-center fs-1 pt-4">
+                <h2>NUESTROS PRODUCTOS</h2>
+            </div>
+            <div class="container separacion"></div>
+            <div class="container text-center mt-3"><p>En la tienda online de VINEBULA tenemos disponibles botellas de vino en formato de 0.5 y 1L, además de racimos de nuestras preciadas uvas doradas y plateadas. Si te acercas a nuestra viña, podrás encontrar souvenirs y muchas cosas más en nuestra tienda local.</p></div>
+            <div class="container-fluid fs-3 text-black centrar">
+                <div class="mb-2">
+                    <button id="cambiarProductos" class="mt-1 mb-3 btn boton_dorado text-black"> Ver sección de uvas plateadas. </button>
+                </div>
+            </div>
+            <div class="container-fluid vw-100 text-black mt-1 pb-3 centrar" id="body_productos">
             </div>
         </div>
     </section>
     <section class="section_1_div" id="EVENTOS">
         <div class="container-fluid">
             <div class="text-center fs-1 pt-3">
-                <h2>EVENTOS</h2>
+                <h2>COSECHA</h2>
             </div>
-            <div class="row row-cols-1 row-cols-md-2 centrar pb-5 pt-3">
-                <div class="col centrar">
+            <div class="container separacion"></div>
+            <div class="container text-center mt-3"><p>Para mantener el espiritu familiar dentro de la viña, nos gusta incorporar a miembros de la comunidad, turistas o extranjeros que quieran participar en el mágico evento de la cosecha de nuestras uvas. Los suelos altamente nutritivos de Monferrato lo hacen idóneo para el cultivo de uvas y otros vides, a la espera de que con el cambio de las estaciones, el clima se adecue para el cultivo de uvas doradas o plateadas. Por este motivo, nos gusta mantenerlos informados sobre la condición climática del viñedo, de manera que podamos contar con la mayor cantidad de manos posibles al momento de la cosecha.</p></div>
+            <div class="row centrar pb-5 pt-3">
+                <div class="col-4 centrar div_aux">
+                    <div class="card div_eventos text-center">
+                      <img src="./assets/images/uvas_plateadas_cosecha.png" class="card-img-top img_eventos" alt="imagen_uvas_plateadas_cosecha">
+                      <div class="card-body">
+                        <h4 class="card-title fs-5">Condiciones de cosecha de uvas plateadas.</h3>
+                        <p class="card-text">Para el cultivo y cosecha de uvas plateadas, se necesita adecuar el entorno para que la temperatura no exceda 20°C y la humedad debe mantenerse por encima del 60%. Esta variedad de uvas se ve favorecida por los climas nublados.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-4 centrar">
                   <div class="card div_eventos text-center">
-                    <img src="./assets/images/plantillaUvasDoradas.png" class="card-img-top img_eventos" alt="...">
+                    <img src="./assets/images/imagen_cosecha_2.png" class="card-img-top img_eventos" alt="imagen_hombre_cosechando_uvas">
                     <div class="card-body">
-                      <h3 class="card-title">Card title</h3>
-                      <p class="card-text" id="evento_fetch">AQUI QUIERO INSERTAR LOS DATOS DEL FETCH</p>
+                      <h3 class="card-title fs-5">Condiciones climáticas actuales del viñedo.</h3>
+                      <p class="card-text" id="evento_fetch"></p>
                     </div>
                   </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="CONTACTO">
-        <div class="container-fluid">
-            <div class="row centrar bg-dark">
-                <div class="col-md-6 pb-3">
-                    <div class="img_contacto">
-                        <img src="./assets/images/uvasPlateadas.png" alt="" width="500" class="rounded ms-5">
-                    </div>
-                </div>
-                <div class="col-md-6 bg-dark pb-5">
-                    <div class="text-center text-white fs-1 pt-5">
-                        <h2>CONTACTO</h2>
-                    </div>
-                    <div>
-                        <div class="mb-1">
-                            <label class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control" placeholder="Ingrese su nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Dirección de correo</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Example textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
+                <div class="col-4 centrar div_aux">
+                    <div class="card div_eventos text-center">
+                      <img src="./assets/images/uvas_doradas_cosecha.png" class="card-img-top img_eventos" alt="imagen_uvas_doradas_cosecha">
+                      <div class="card-body">
+                        <h3 class="card-title fs-5">Condiciones de cosecha de uvas doradas.</h3>
+                        <p class="card-text">Para el cultivo y cosecha de uvas doradas, se necesita adecuar el entorno para que la temperatura sea superior a 40°C y la humedad no debe exceder el 30%. Esta variedad de uvas se ve favorecida por los climas cálidos o de cielo claro.</p>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <footer>
+    <footer id="SIGUENOS">
+        <div class="container-fluid bg-dark text-white pt-3 footer text-center">
+                <h2>SÍGUENOS</h2>
+                <div class="container separacion_2"></div>
+        </div>
+        <div class="container-fluid bg-dark text-white centrar pt-3 pb-3 footer text-center">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 centrar div_footer">
+                    <a href="https://es-la.facebook.com/" target="_blank" class="ms-5"><img src="./assets/images/icono_fb.svg" alt="icono facebook" width="20"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="ms-5"><img src="./assets/images/icono_ig.svg" alt="icono instagram" width="20"></a>
+                    <a href="https://www.whatsapp.com/" target="_blank" class="ms-5"><img src="./assets/images/icono_ws.svg" alt="icono whatsapp" width="20"></a>
+                    <a href="https://twitter.com/" target="_blank" class="ms-5"><img src="./assets/images/icono_tw.svg" alt="icono twitter" width="20"></a>
+                </div>
+                <div class="col-md-4 col-sm-12 div_footer centrar">
+                    <a href="#"><img src="./assets/images/logo_icono_blanco_full.svg" alt="logo" width="150"></a>
+                </div>
+                <div class="col-md-4 col-sm-12 div_footer centrar">
+                    <p>Todos los derechos reservados®.</p>
+                </div>
+            </div>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

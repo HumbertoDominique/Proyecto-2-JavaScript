@@ -32,7 +32,11 @@ th{
 .div_prod_2{
     width: 20vw;
     height: 18rem;
-    border: #450757;
+    border: none;
+}
+.div_borde{
+    width: 20.3vw;
+    height: 18.3rem;
 }
 .imgProducto{
     object-fit: cover;
@@ -46,8 +50,12 @@ th{
     width: 80%;
     height: 20%;
 }
-.prueba{
-    height: 50%;
+.targetas_cosecha{
+    width: 5vh;
+    height: 20vh;
+}
+.div_aux{
+    font-size: 0.8rem;
 }
 .img_eventos{
     object-fit: cover;
@@ -58,13 +66,20 @@ th{
     height: 20%;
 }
 .main_div{
-    background-image: linear-gradient(to right bottom, #450757, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
+    background: #212122;
     height: 80vh;
 }
-
 .main_div_2{
     height: 80vh;
-    animation: fadein 8.6s;
+    animation: fadein 8s ease;
+}
+.section_div{
+    background-image: linear-gradient(to right, #a18a39, #b49f56, #c7b474, #daca92, #ede0b0);
+    height: auto;
+}
+.section_div_2{
+    background-image: linear-gradient(to right, #d1d1d1, #b9bac0, #9da4af, #80909e, #607d8b);
+    height: auto;
 }
 .productos_div{
     height: 100vh;
@@ -82,27 +97,38 @@ th{
     align-items: center;
 }
 .header_nav{
-    background-color: #1A1440;
+    background-color: #212121;
 }
 .section_1_div{
     background-color: #CFD8DC;
 }
 .section_1_div_{
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.683), rgba(255, 255, 255, 0.683)), url(./../assets/images/nosotros.jpg);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.753), rgba(255, 255, 255, 0.753)), url(./../assets/images/nosotros.jpg);
     background-position: bottom;
 }
-.boton_uvas{
-    background-color: silver;
+.boton_compra{
+    color: white;
+    width: 10rem;
+    height: 2.5rem;
 }
-.boton_uvas:checked{
-    background-color: gold;
+.boton_dorado{
+    background-color: #b4b2b2;
+}
+.boton_dorado:hover{
+    background-color: #D5CDD1;
+}
+.boton_plateado{
+    background-color: #dabd53;
+}
+.boton_plateado:hover{
+    background-color: #EFD472;
 }
 .carrito{
     width: 30rem;
     height: auto;
     z-index: 1;
     color: black;
-    background: rgba(255, 255, 255, 0.833);
+    background: rgba(172, 172, 172, 0.833);
     border-width: thick;
     border-color: #220d2c;
 }
@@ -114,21 +140,49 @@ th{
     font-size: 0.5rem;
 }
 
+.separacion{
+    height: 0.05rem;
+    background: #212121;
+}
+.separacion_2{
+    height: 0.05rem;
+    background: white;
+}
+.footer{
+    width: 100vw;
+}
+.div_footer{
+    width: 30vw;
+}
+.boton_elemento{
+    font-size: 0.8rem;
+    border: none;
+}
+.total_elemento{
+    order: 1;
+}
+.borrar_elemento{
+    order: 2;
+}
+.comprar_elemento{
+    order: 3    ;
+}
+
 @keyframes fadein {
 
     0%{
-        background-image: linear-gradient(to right bottom, #450757, #5f1b80, #4c1c72, #3a1b64, #2b1955, #2a1446, #271039, #220d2c, #20091f, #1c0515, #13020a, #000000);
+        background: #212122;
     }
     2%{
-        background: gray;
+        background: rgba(255, 217, 0, 0.564);
     }
     50%{
         background: white;
     }
-    75%{ 
-        background: white;
+    98%{
+        background: rgba(33, 33, 33, 0.224);
     }
     100%{
-        background: #220d2c;
+        background: #212122;
     }
 }
